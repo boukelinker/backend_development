@@ -1,32 +1,55 @@
 # Do not modify these lines
-__winc_id__ = '71dd124b4a6e4d268f5973db521394ee'
-__human_name__ = 'strings'
+__winc_id__ = '7b9401ad7f544be2a23321292dd61cb6'
+__human_name__ = 'arguments'
 
 # Add your code after this line
 
-scorer_name_0 = "Ruud Gullit"
-scorer_name_1 = "Marco van Basten"
-player = "Frank Rijkaard"
+# 1 Greet template -------------------------------------------------------------------------------------------------------------------------
 
-goal_0 = 32
-goal_1 = 54
 
-scorers = scorer_name_0 + " " + \
-    str(goal_0) + ", " + scorer_name_1 + " " + str(goal_1)
+def greet(name, greeting_template="Hello, <name>!"):
+    greeting = greeting_template.replace('<name>', name)
+    return greeting
 
-report = f"{scorer_name_0} scored in the {str(goal_0)}nd minute\n{scorer_name_1} scored in the {str(goal_1)}th minute"
 
-first_name = player[:player.find(" ")]
-last_name = player[(player.find(" ") + 1):]
-last_name_len = len(player[(player.find(" ") + 1):])
-name_short = first_name[0]+'. ' + last_name
-chant = (first_name + "! ")*(len(first_name)-1)+first_name + "!"
-good_chant = chant[-1] != " "
+print(greet('Jan'))
+print(greet('Jan', 'Whats up, <name>!'))
 
-print(report)
-print(first_name)
-print(last_name)
-print(last_name_len)
-print(name_short)
-print(chant)
-print(good_chant)
+# 2 Force -------------------------------------------------------------------------------------------------------------------------
+
+
+def force(mass, body='earth'):
+    if body in planets:
+        g = planets[body]
+        F = mass * g
+        return F
+    else:
+        return 'Planet is not in the list of planets'
+
+
+planets = {
+    'sun': 274,
+    'jupiter': 24.9,
+    'neptune': 11.2,
+    'saturn': 10.4,
+    'earth': 9.8,
+    'uranus': 8.9,
+    'venus': 8.9,
+    'mars': 3.7,
+    'mercury': 3.7,
+    'moon': 1.6,
+    'pluto': 0.6
+}
+
+print(force(mass=10, body='uranus'))
+
+# 3 Gravity -------------------------------------------------------------------------------------------------------------------------
+
+
+def pull(m1, m2, d):
+    G = 6.674*10**-11       # --> Gravitational constant
+    F = G*((m1*m2)/d**2)
+    return F
+
+
+print(pull(m1=0.1, m2=5.972*10**24, d=6.371*10**6))
