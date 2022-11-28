@@ -1,0 +1,163 @@
+User guide for superpy.py
+
+Het gebruik van de applicatie van uit een command line interface werkt als volgt:
+
+Ik verdeel de uitleg in de verschillende acties die in superpy gedaan kunnen worden.
+
+1. Inkopen van producten (buy)
+2. Verkopen van producten (sell)
+Rapporten opvragen
+3. Inkoop rapport (report_bought);
+4. Verkoop rapport (report_sold);
+5. Inventaris rapport (report_inventory);
+6. Omzet rapport (report_revenue);
+7. Winst rapport (report_profit)
+
+
+
+1. Het inkopen van producten gaat als volgt:
+
+    Toets in het command line interface het volgende in(zorg er voor dat je in de locatie aan het werk bent waar mijn_superpy.py staat opgeslagen)
+
+    python mijn_superpy.py buy 
+
+    Hierna gevolgd door:
+    -product_name orange 
+    -price 1 
+    -quantity 100 
+    -expiration 2022-12-19
+    Waarbij de gegevens zelf te bepalen zijn
+
+2. Het verkopen van producten gaat als volgt:
+
+    Toets in het command line interface het volgende in(zorg er voor dat je in de locatie aan het werk bent waar mijn_superpy.py staat opgeslagen)
+
+    python mijn_superpy.py sell 
+    
+    Hierna gevolgd door:
+    -product_name corn 
+    -price 100 
+    -quantity 100
+    Waarbij de gegevens zelf te bepalen zijn
+
+Rapporten opvragen
+
+3. Inkoop rapport opvragen:
+
+    Toets in het command line interface het volgende in(zorg er voor dat je in de locatie aan het werk bent waar mijn_superpy.py staat opgeslagen)
+
+    python mijn_superpy.py report_bought
+
+    Je krijgt iets al het volgende te zien:
+              Bought total list
+    ┏━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━┓
+    ┃ ID ┃ Product ┃ Quantity ┃ InStock ┃
+    ┡━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━┩
+    │ 1  │ orange  │ 100      │ True    │
+    │ 4  │ tomato  │ 20       │ True    │
+    │ 3  │ corn    │ 44       │ True    │
+    └────┴─────────┴──────────┴─────────┘
+
+4. Verkoop rapport opvragen:
+
+    Toets in het command line interface het volgende in(zorg er voor dat je in de locatie aan het werk bent waar mijn_superpy.py staat opgeslagen)
+
+    python mijn_superpy.py report_sold
+
+    Je krijgt iets al het volgende te zien:
+
+                                Sold list
+    ┏━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━┓
+    ┃ ID ┃ Product ┃ Quantity ┃ Sold_price ┃ Sold_date  ┃ Expiration ┃
+    ┡━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━┩
+    │ 3  │ corn    │ 100      │ 100        │ 2022-11-27 │ 2022-12-18 │
+    └────┴─────────┴──────────┴────────────┴────────────┴────────────┘
+
+5. Inventaris rapport opvragen:
+
+    Toets in het command line interface het volgende in(zorg er voor dat je in de locatie aan het werk bent waar mijn_superpy.py staat opgeslagen)
+
+    python mijn_superpy.py report_inventory
+
+    Je krijgt iets al het volgende te zien:
+    
+                                      Inventory
+    ┏━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━┓
+    ┃ ID ┃ Product ┃ Quantity ┃ Bought_price ┃ Bought_date ┃ Expiration ┃ InStock ┃
+    ┡━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━┩
+    │ 5  │ apple   │ 100      │ 70           │ 2022-11-27  │ 2022-12-09 │ True    │
+    │ 1  │ orange  │ 100      │ 70           │ 2022-11-27  │ 2022-12-19 │ True    │
+    │ 1  │ orange  │ 100      │ 70           │ 2022-11-27  │ 2022-12-19 │ True    │
+    │ 1  │ orange  │ 100      │ 70           │ 2022-11-27  │ 2022-12-19 │ True    │
+    │ 1  │ orange  │ 100      │ 70           │ 2022-11-27  │ 2022-12-19 │ True    │
+    └────┴─────────┴──────────┴──────────────┴─────────────┴────────────┴─────────┘
+                                  Expired products
+    ┏━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━┓
+    ┃ ID ┃ Product ┃ Quantity ┃ Bought_price ┃ Bought_date ┃ Expiration ┃ InStock ┃
+    ┡━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━┩
+    │ 2  │ banana  │ 100      │ 70           │ 2022-11-27  │ 2022-11-09 │ Expired │
+    │ 4  │ tomato  │ 20       │ 7            │ 2022-11-27  │ 2022-11-09 │ Expired │
+    │ 3  │ corn    │ 44       │ 4            │ 2022-11-27  │ 2022-11-09 │ Expired │
+    └────┴─────────┴──────────┴──────────────┴─────────────┴────────────┴─────────┘
+                                  Out of stock
+    ┏━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━┓
+    ┃ ID ┃ Product ┃ Quantity ┃ Bought_price ┃ Bought_date ┃ Expiration ┃ InStock ┃
+    ┡━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━┩
+    │ 3  │ corn    │ 0        │ 70           │ 2022-11-27  │ 2022-12-18 │ False   │
+    └────┴─────────┴──────────┴──────────────┴─────────────┴────────────┴─────────┘
+
+6. Omzet rapport opvragen:
+    a. omzet over 1 dag:
+
+        Toets in het command line interface het volgende in(zorg er voor dat je in de locatie aan het werk bent waar mijn_superpy.py staat opgeslagen)
+
+        python mijn_superpy.py report_revenue
+        
+        Hierna gevolgd door:
+        -start_date 2022-11-20
+
+        Je krijgt iets al het volgende te zien:
+
+        Revenue on 2022-11-27 is 10000
+
+    b. omzet over een periode:
+
+        Toets in het command line interface het volgende in(zorg er voor dat je in de locatie aan het werk bent waar mijn_superpy.py staat opgeslagen)
+
+        python mijn_superpy.py report_revenue
+        
+        Hierna gevolgd door:
+        -start_date 2022-11-20 
+        -end_date 2022-11-27
+
+        Je krijgt iets al het volgende te zien:
+
+        Revenue between 2022-11-20 and 2022-11-27 is 10000
+
+7. Winst rapport opvragen:
+    a. omzet over 1 dag:
+
+        Toets in het command line interface het volgende in(zorg er voor dat je in de locatie aan het werk bent waar mijn_superpy.py staat opgeslagen)
+
+        python mijn_superpy.py report_profit
+        
+        Hierna gevolgd door:
+        -start_date 2022-11-27
+
+        Je krijgt iets al het volgende te zien:
+
+        Profit over 2022-11-27 is 300
+
+    b. omzet over een periode:
+
+        Toets in het command line interface het volgende in(zorg er voor dat je in de locatie aan het werk bent waar mijn_superpy.py staat opgeslagen)
+
+        python mijn_superpy.py report_profit
+        
+        Hierna gevolgd door:
+        -start_date 2022-11-20 
+        -end_date 2022-11-27
+
+        Je krijgt iets al het volgende te zien:
+
+        Profit between 2022-11-20 and 2022-11-27 is 300
